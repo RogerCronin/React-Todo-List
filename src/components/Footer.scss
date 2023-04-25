@@ -1,0 +1,45 @@
+div.Footer {
+    display: flex;
+    flex-direction: row;
+    padding: 1rem 0.5rem;
+    background-color: var(--color-light-green);
+    border-radius: 0.25rem;
+    border: 1px solid var(--color-light-gray);
+    width: min(90vw, 500px);
+
+    div.Icons {
+        margin: 0 0.5rem 0 1rem;
+        display: flex;
+        flex-direction: row;
+        font-size: 1.2rem;
+
+        p {
+            margin: auto 0;
+            cursor: pointer;
+        }
+    }
+
+    > p {
+        margin: auto 0.5rem;
+        padding-left: 1rem;
+        border-left: 1px solid var(--color-gray);
+        color: var(--color-green);
+        flex-grow: 1;
+    }
+
+    > div.Labels {
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+
+        button {
+            background-color: transparent;
+            color: var(--color-dark-green);
+            border-color: var(--color-gray);
+            border-style: solid;
+            border-radius: 0.5rem;
+            padding: 0.5rem 0.75rem;
+            cursor: pointer;
+        }
+    }
+}

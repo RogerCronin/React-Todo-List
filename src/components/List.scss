@@ -1,0 +1,18 @@
+div.List {
+    flex-grow: 1;
+    width: 95%;
+
+    div.Item {
+        display: flex;
+        flex-direction: row;
+
+        input {
+            accent-color: var(--color-green);
+            width: 1rem;
+        }
+
+        p {
+            margin: 0.5rem;
+        }
+    }
+}
