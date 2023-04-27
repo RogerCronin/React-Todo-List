@@ -10,6 +10,8 @@ import "./MainContainer.scss";
 export default function MainContainer() {
     const [_key, _setKey] = useState(0);
     const [todos, setTodos] = useState([]);
+    const [filter, setFilter] = useState(0);
+    const [searching, setSearching] = useState(false);
     const [inputValue, setInputValue] = useState("");
 
     const getKey = () => {
@@ -17,6 +19,10 @@ export default function MainContainer() {
         return _key;
     };
 
+    const toggleSearching = () => {
+        setSearching(!searching);
+    }
+    
     const addTodo = () => {
         const value = inputValue.trim();
         if(value === "") return;
@@ -31,6 +37,10 @@ export default function MainContainer() {
         }));
     }
 
+    const deleteItem = id => {
+        setTodos(todos.filter(todo => todo.id !== id));
+    }
+
     return (
         <div className="MainContainer">
             <div className="ElementWrapper">
@@ -39,15 +49,23 @@ export default function MainContainer() {
                     inputValue={inputValue}
                     setInputValue={setInputValue}
                     addTodo={addTodo}
+                    searching={searching}
                 />
                 <List
                     todos={todos}
                     toggleComplete={toggleComplete}
+                    deleteItem={deleteItem}
+                    filter={filter}
+                    searching={searching}
+                    inputValue={inputValue}
                 />
             </div>
             <Footer
                 todos={todos}
                 addTodo={addTodo}
+                filter={filter}
+                setFilter={setFilter}
+                toggleSearching={toggleSearching}
             />
         </div>
     );
